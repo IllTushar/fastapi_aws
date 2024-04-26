@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Form
 from request.product import *
 
 app = FastAPI()
@@ -38,3 +38,18 @@ async def item_details(item: Item):
 @app.post("/product/{product_id}")
 def product_description(item: Item, user: User, product_id: int, product_name: str):
     return {"user": user, "product_id": product_id, "product_name": product_name, "item": item}
+
+
+@app.post("/offer")
+def product_des(product: Product):
+    return {"product": product}
+
+
+@app.post("/date")
+def time_module(event: Event):
+    return event
+
+
+@app.post("/login")
+def login(username: str = Form(...), password: str = Form(...)):
+    return {"username": username}
