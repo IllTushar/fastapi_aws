@@ -11,5 +11,5 @@ class Item(BaseModel):
 
 
 class User(BaseModel):
-    name: str = Field(title="You can enter your name", description="The name field is requireds", gt=0)
+    name: str = Field(title="You can enter your name", description="The name field is required", gt=0)
     email: str
